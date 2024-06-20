@@ -10,4 +10,11 @@ class Animal extends Model
     use HasFactory;
 
     protected $table = 'animais';
+
+    // vou colocar todos os campos que eu quero
+    protected $fillable = [
+        'id',
+        'nome',
+        'idade',
+    ];
 }

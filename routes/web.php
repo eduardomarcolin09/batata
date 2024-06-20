@@ -16,3 +16,8 @@ Route::get('animais/cadastrar', [AnimaisController::class, 'cadastrar'])->name('
 // Podemos ter varias rotas com o mesmo nome/endereço porém com METÓDOS DIFERENTES 
 
 Route::post('/animais/cadastrar', [AnimaisController::class, 'gravar'])->name('animais.gravar');
+
+// Animais ta sendo passado por parametro para saber qual vai ser apagado
+Route::get('/animais/apagar/{animal}', [AnimaisController::class, 'apagar'])->name('animais.apagar');
+
+Route::delete('/animais/apagar/{animal}', [AnimaisController::class, 'apagar']);
