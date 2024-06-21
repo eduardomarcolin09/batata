@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AnimaisController;
+use App\Http\Controllers\FilmesController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -21,3 +22,12 @@ Route::post('/animais/cadastrar', [AnimaisController::class, 'gravar'])->name('a
 Route::get('/animais/apagar/{animal}', [AnimaisController::class, 'apagar'])->name('animais.apagar');
 
 Route::delete('/animais/apagar/{animal}', [AnimaisController::class, 'apagar']);
+
+
+// Trabalho
+
+Route::get('/filmes', [FilmesController::class, 'index'])->name('filmes');
+
+Route::get('/filmes/cadastrar', [FilmesController::class, 'cadastrar'])->name('filmes.cadastrar');
+
+Route::post('/filmes/cadastrar', [FilmesController::class, 'gravar'])->name('filmes.gravar');
