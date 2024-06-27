@@ -32,5 +32,20 @@ class FilmesController extends Controller
         return redirect()->route('filmes');
     }
 
+    public function editar(Filme $filme) {
+        return view('filmes/editar', ['filme' => $filme]);
+    }
 
+    public function editarGravar(Request $form, Filme $filme) {
+        $dados = $form->validate([
+        'título' => 'required|max:255',
+        'diretor' => 'required',
+        'ano_de_lançamento' => 'required',
+        'duração' => 'required'
+    ]);
+
+    $filme->fill($dados);
+    $filme->save();
+    return redirect()->route('filmes');
+    } 
 }
